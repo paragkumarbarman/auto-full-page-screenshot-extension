@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Full Page Screenshot & Copy v1.0.1</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="card">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <div class="icon-badge">⚡</div>
+        <div class="brand-text">
+          <h1>Full Screenshot & Copy <span class="version-tag">v1.0.1</span></h1>
+          <p>Auto-scroll & copy to clipboard</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="content">
+      <!-- Idle / Start State -->
+      <div id="idleState" class="state-view active">
+        <button id="captureBtn" class="btn btn-primary">
+          <span class="btn-icon">📸</span>
+          <span class="btn-text">Capture Full Page & Copy</span>
+        </button>
+
+        <div class="options-row">
+          <label class="checkbox-container">
+            <input type="checkbox" id="autoCopyCheck" checked>
+            Auto Copy to Clipboard
+          </label>
+        </div>
+      </div>
+
+      <!-- Loading State -->
+      <div id="loadingState" class="state-view">
+        <div class="spinner-container">
+          <div class="spinner"></div>
+        </div>
+        <div class="status-info">
+          <div id="statusText" class="status-text">Detecting scroll area...</div>
+          <div class="progress-bar-bg">
+            <div id="progressBar" class="progress-bar-fill" style="width: 0%;"></div>
+          </div>
+          <div id="progressPercent" class="progress-percent">0%</div>
+        </div>
+      </div>
+
+      <!-- Success State -->
+      <div id="successState" class="state-view">
+        <div class="success-banner">
+          <span class="success-icon">✅</span>
+          <span id="successMsg">Copied to Clipboard!</span>
+        </div>
+
+        <div class="preview-container">
+          <img id="previewImage" src="" alt="Full Page Screenshot Preview">
+        </div>
+
+        <div class="action-grid">
+          <button id="reCopyBtn" class="btn btn-secondary">
+            <span>📋</span> Copy Again
+          </button>
+          <button id="downloadBtn" class="btn btn-secondary">
+            <span>⬇️</span> Download PNG
+          </button>
+        </div>
+
+        <button id="newCaptureBtn" class="btn btn-outline margin-top">
+          ⚡ Capture Another Page
+        </button>
+      </div>
+
+      <!-- Error State -->
+      <div id="errorState" class="state-view">
+        <div class="error-banner">
+          <span class="error-icon">⚠️</span>
+          <span id="errorMsg">Failed to capture page.</span>
+        </div>
+        <button id="retryBtn" class="btn btn-primary margin-top">
+          🔄 Try Again
+        </button>
+      </div>
+    </div>
+
+    <!-- Developer Footer -->
+    <footer class="footer">
+      <div class="dev-info">
+        <span>Dev:</span>
+        <a id="devLink" href="https://barman-it-solutions.vercel.app/" target="_blank" rel="noopener noreferrer">
+          PARAG KUMAR BARMAN
+        </a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
